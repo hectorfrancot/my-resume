@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    font-family: "Inter Variable", "Inter", system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    transition: background-color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: radial-gradient(
+        ellipse 80% 80% at 50% -20%,
+        rgba(14, 165, 233, 0.15),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 80% 80% at 80% 80%,
+        rgba(217, 70, 239, 0.15),
+        transparent
+      );
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background: radial-gradient(
+        ellipse 80% 80% at 50% -20%,
+        rgba(14, 165, 233, 0.25),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 80% 80% at 80% 80%,
+        rgba(217, 70, 239, 0.25),
+        transparent
+      ),
+      #0f172a;
+    background-attachment: fixed;
+  }
+
+  /* Smooth theme transitions for all elements */
+  * {
+    transition-property: background-color, border-color, color, fill, stroke,
+      box-shadow, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-duration: 300ms;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(241, 245, 249);
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: rgb(15, 23, 42);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0ea5e9, #d946ef);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #0284c7, #c026d3);
+  }
+}
+
+@layer components {
+  /* Modern button system */
+  .btn-primary {
+    @apply relative overflow-hidden px-8 py-4 rounded-2xl font-semibold text-white 
+           bg-gradient-to-r from-primary-500 to-accent-500 
+           hover:from-primary-600 hover:to-accent-600 
+           active:from-primary-700 active:to-accent-700
+           shadow-modern hover:shadow-modern-lg
+           transition-all duration-300 ease-out
+           transform hover:scale-105 active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 
+           dark:focus:ring-offset-neo-900;
+  }
+
+  .btn-primary::before {
+    @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent 
+           opacity-0 hover:opacity-100 transition-opacity duration-300;
+    content: "";
+  }
+
+  .btn-secondary {
+    @apply relative overflow-hidden px-8 py-4 rounded-2xl font-semibold
+           bg-neo-100 dark:bg-neo-800 text-neo-900 dark:text-neo-100
+           hover:bg-neo-200 dark:hover:bg-neo-700
+           active:bg-neo-300 dark:active:bg-neo-600
+           shadow-modern hover:shadow-modern-lg
+           transition-all duration-300 ease-out
+           transform hover:scale-105 active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-neo-500/50 focus:ring-offset-2 
+           dark:focus:ring-offset-neo-900;
+  }
+
+  .btn-ghost {
+    @apply relative overflow-hidden px-6 py-3 rounded-xl font-medium
+           text-neo-700 dark:text-neo-300
+           hover:bg-neo-100/50 dark:hover:bg-neo-800/50
+           backdrop-blur-sm border border-neo-200/50 dark:border-neo-700/50
+           transition-all duration-300 ease-out
+           transform hover:scale-105 active:scale-95;
+  }
+
+  /* Modern card system */
+  .card-modern {
+    @apply relative overflow-hidden rounded-3xl
+           bg-white/80 dark:bg-neo-900/80 
+           backdrop-blur-xl border border-neo-200/50 dark:border-neo-700/50
+           shadow-modern hover:shadow-modern-lg
+           transition-all duration-500 ease-out
+           hover:-translate-y-2 hover:scale-[1.02];
+  }
+
+  .card-neo {
+    @apply relative overflow-hidden rounded-3xl p-8
+           bg-neo-50 dark:bg-neo-900
+           shadow-neo-light dark:shadow-neo-dark
+           transition-all duration-500 ease-out
+           hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .card-glass {
+    @apply relative overflow-hidden rounded-3xl
+           bg-white/10 dark:bg-neo-900/10 
+           backdrop-blur-2xl border border-white/20 dark:border-neo-700/20
+           shadow-modern hover:shadow-glow-lg
+           transition-all duration-500 ease-out
+           hover:-translate-y-2 hover:bg-white/20 dark:hover:bg-neo-900/20;
+  }
+
+  /* Spacing system */
+  .section-padding {
+    @apply px-6 sm:px-8 lg:px-12 py-20 sm:py-24 lg:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Typography system */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 
+           bg-clip-text text-transparent animate-gradient-shift;
+    background-size: 200% 200%;
+  }
+
+  .text-hero {
+    @apply text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight;
+  }
+
+  .text-display {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+
+  .text-section {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight;
+  }
+
+  /* Modern hover effects */
+  .hover-magnetic {
+    @apply transition-transform duration-300 ease-out cursor-pointer;
+  }
+
+  .hover-magnetic:hover {
+    animation: magnetic 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-2 shadow-modern-lg;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-glow:hover {
+    @apply shadow-glow-lg;
+  }
+
+  /* Glassmorphism effects */
+  .glass-effect {
+    @apply bg-white/10 dark:bg-neo-900/10 backdrop-blur-2xl 
+           border border-white/20 dark:border-neo-700/20;
+  }
+
+  .glass-strong {
+    @apply bg-white/20 dark:bg-neo-900/20 backdrop-blur-3xl 
+           border border-white/30 dark:border-neo-700/30;
+  }
+
+  /* Modern loading states */
+  .skeleton {
+    @apply animate-pulse bg-gradient-to-r from-neo-200 via-neo-300 to-neo-200 
+           dark:from-neo-700 dark:via-neo-600 dark:to-neo-700;
+    background-size: 200% 200%;
+    animation: shimmer 2s infinite ease-in-out;
+  }
+
+  /* Text animations */
+  .text-reveal {
+    @apply animate-text-reveal;
+  }
+
+  .char-reveal {
+    @apply inline-block animate-char-reveal;
+  }
+
+  /* Scroll animations */
+  .scroll-reveal {
+    @apply opacity-0 translate-y-8 transition-all duration-800 ease-out;
+  }
+
+  .scroll-reveal.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Custom utilities */
+  .bg-mesh {
+    background-image: radial-gradient(
+        circle at 25% 25%,
+        rgba(14, 165, 233, 0.2) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgba(217, 70, 239, 0.2) 0%,
+        transparent 50%
+      );
+  }
+
+  .bg-noise {
+    background-image: radial-gradient(
+        circle at 25% 25%,
+        rgba(14, 165, 233, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgba(217, 70, 239, 0.1) 0%,
+        transparent 50%
+      ),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes bounce-subtle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes fillProgress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: var(--target-width, 100%);
+  }
+}
+
+@keyframes count-up {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Additional animation utilities */
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+.animate-count-up {
+  animation: count-up 1s ease-out forwards;
+}
+
+/* Additional animations for AI Portfolio section */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}

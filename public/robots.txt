@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hectorfrancot.github.io/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Allow indexing of all content
+Allow: /
+Allow: /about
+Allow: /skills
+Allow: /experience
+Allow: /projects
+Allow: /contact
+Allow: /ai-portfolio
+
+# Block irrelevant paths
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.css$
+Disallow: /*.js$
+Disallow: /dist/
+
+# SEO-friendly robots.txt for Héctor Franco's portfolio
+# Contact: hectorft.hf@gmail.com
+# Website: https://hectorfrancot.github.io

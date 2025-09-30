@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found - Héctor Franco Portfolio</title>
+    <meta
+      name="description"
+      content="The page you're looking for doesn't exist. Visit Héctor Franco's portfolio homepage."
+    />
+    <meta name="robots" content="noindex" />
+
+    <!-- Redirect to main portfolio -->
+    <meta
+      http-equiv="refresh"
+      content="5;url=https://hectorfrancot.github.io"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      .container {
+        text-align: center;
+        padding: 2rem;
+        max-width: 600px;
+      }
+
+      h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        opacity: 0.8;
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        opacity: 0.7;
+        line-height: 1.6;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50px;
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .redirect-info {
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        opacity: 0.6;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 3rem;
+        }
+
+        h2 {
+          font-size: 1.2rem;
+        }
+
+        .container {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>404</h1>
+      <h2>Page Not Found</h2>
+      <p>
+        The page you're looking for doesn't exist or has been moved. Let's get
+        you back to exploring my portfolio and projects.
+      </p>
+
+      <a href="https://hectorfrancot.github.io" class="btn">
+        Back to Portfolio
+      </a>
+
+      <div class="redirect-info">
+        You will be automatically redirected in 5 seconds...
+      </div>
+    </div>
+
+    <script>
+      // Enhanced redirect with analytics tracking
+      setTimeout(() => {
+        // Track 404 error if GA is available
+        if (typeof gtag !== "undefined") {
+          gtag("event", "page_view", {
+            page_title: "404 Error",
+            page_location: window.location.href,
+            custom_map: { dimension1: "404_error" },
+          });
+        }
+
+        // Redirect to homepage
+        window.location.href = "https://hectorfrancot.github.io";
+      }, 5000);
+
+      // Immediate redirect if user clicks anywhere
+      document.addEventListener("click", () => {
+        window.location.href = "https://hectorfrancot.github.io";
+      });
+    </script>
+  </body>
+</html>
