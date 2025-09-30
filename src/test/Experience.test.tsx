@@ -109,10 +109,24 @@ describe("Experience Component", () => {
   it("shows employment dates correctly", () => {
     render(<Experience />);
 
-    const dateElements = screen.getAllByText(/Feb 2023/i);
-    expect(dateElements.length).toBeGreaterThan(0);
+    // Buscar el elemento time que contiene las fechas
+    const timeElements = screen.getAllByRole("time");
+    expect(timeElements.length).toBeGreaterThan(0);
 
-    expect(screen.getByText(/Dec 2021/i)).toBeInTheDocument();
+    // Verificar las fechas que realmente se están mostrando
+    // Basado en el output del debug: "Feb 2023 - Present" y "Dec 2021 - Feb 2023"
+    const hasCurrentJob = timeElements.some(element => 
+      element.textContent?.includes("Feb 2023 - Present")
+    );
+    expect(hasCurrentJob).toBe(true);
+
+    const hasPreviousJob = timeElements.some(element => 
+      element.textContent?.includes("Dec 2021 - Feb 2023")
+    );
+    expect(hasPreviousJob).toBe(true);
+
+    // Verificar que "Present" aparece para la posición actual
+    expect(screen.getByText(/Present/i)).toBeInTheDocument();
   });
 
   it("opens company website when company name is clicked", async () => {
