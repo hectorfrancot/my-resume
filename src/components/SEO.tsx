@@ -13,7 +13,7 @@ const SEO: React.FC<SEOProps> = ({
   title = "Héctor Franco - Senior Full Stack Developer & Tech Lead",
   description = "Senior Full Stack Developer & Tech Lead at London Markets. Expert in React, Angular, TypeScript, Java Spring Boot, .NET Core, and AI-assisted development.",
   keywords = "Héctor Franco, Senior Full Stack Developer, Tech Lead, React, Angular, TypeScript, AI Development",
-  canonical = "https://hectorfrancot.github.io",
+  canonical = "https://hectorfrancot.github.io/my-resume/",
   ogImage = "https://hectorfrancot.github.io/hector-franco-developer.jpg",
   jsonLd,
 }) => {

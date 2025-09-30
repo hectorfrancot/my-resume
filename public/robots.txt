@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://hectorfrancot.github.io/sitemap.xml
+Sitemap: https://hectorfrancot.github.io/my-resume/sitemap.xml
 
 # Crawl-delay for better server performance
 Crawl-delay: 1
